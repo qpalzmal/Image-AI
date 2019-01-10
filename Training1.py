@@ -2,7 +2,13 @@ from imageai.Prediction.Custom import ModelTraining
 
 model_trainer = ModelTraining()
 
-# sets model type to "ResNet", other options are "Sqeezenet", "InceptionV3", DenseNet"
+'''
+sets model type to "ResNet", other options are "Sqeezenet", "InceptionV3", DenseNet"
+SqueezeNet = fastest prediction - mid accuracy
+ResNet = fast prediction - high accuracy
+InceptionV3 = slow prediction - higher accuracy
+DenseNet = slowest prediction - highest accuracy
+'''
 model_trainer.setModelTypeAsResNet()
 
 # sets data directory where the dataset is stored
@@ -13,4 +19,3 @@ model_trainer.trainModel(num_objects=10,  # the number of different type of prof
                          enhance_data=True,  # creates modified copies of images to improve accuracy
                          batch_size=32,  # number of images model will study at once
                          show_network_summary=True)  # shows the structure of model type used
-
