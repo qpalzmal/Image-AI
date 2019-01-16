@@ -19,7 +19,7 @@ detector = ObjectDetection()
 detector.setModelTypeAsRetinaNet()
 detector.setModelPath("resnet50_coco_best_v2.0.1.h5")
 detector.loadModel()
-detections, path = detector.detectObjectsFromImage("image.jpg",  # takes in the input image
+detections, path = detector.detectObjectsFromImage(input_image="image.jpg",  # takes in the input image
                                                    output_image_path="newimage.jpg",  # creates a new image
                                                    # creates new images from the each object
                                                    extract_detected_objects=True)
@@ -30,10 +30,10 @@ lidl_detector = ObjectDetection()
 lidl_detector.setModelTypeAsRetinaNet()
 lidl_detector.setModelPath("resnet50_coco_best_v2.0.1.h5")
 lidl_detector.loadModel()
-lidl_detections = lidl_detector.detectObjectsFromImage("image.jpg",  # takes in the input image
+lidl_detections = lidl_detector.detectObjectsFromImage(input_image="image.jpg",  # takes in the input image
                                                        output_image_path="LIDLnewimage.jpg")  # creates a new image
 
-predictions, probabilities = prediction.predictImage("image.jpg", result_count=3)
+predictions, probabilities = prediction.predictImage(image_input="image.jpg", result_count=3)
 
 # DETECTION TO OUTPUT THE PREDICTION IN CONSOLE
 for prediction, probability in zip(predictions, probabilities):
