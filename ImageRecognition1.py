@@ -23,7 +23,7 @@ detections, path = detector.detectObjectsFromImage(input_image="image.jpg",  # t
                                                    output_image_path="newimage.jpg",  # creates a new image
                                                    # creates new images from the each object
                                                    extract_detected_objects=True)
-
+"I wanna tell my fans, to live their life without any judgements... and be adventurous. When opportunity comes... put faith- put work into your faith..
 
 # DETECTION TO DRAW BOXES AROUND IN A NEW IMAGE
 lidl_detector = ObjectDetection()
