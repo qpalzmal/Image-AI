@@ -3,11 +3,10 @@ import cv2
 
 
 def EveryFrame(frame_number, output_array, output_count):
-    print("FOR FRAME", frame_number)
-    for i in detections:
-        print(output_array)
-        print(output_count)
-        print("END OF FRAME", frame_number)
+    print("FOR FRAME: ", frame_number)
+    print(output_array)
+    print(output_count)
+    print("END OF FRAME: ", frame_number)
 
 
 camera = cv2.VideoCapture(0)
@@ -28,7 +27,7 @@ detections = detector.detectObjectsFromVideo(input_file_path="Road traffic video
                                              minimum_percentage_probability=10,
                                              log_progress=True,
                                              return_detected_frame=True,
-                                             per_frame_function=EveryFrame()
+                                             per_frame_function=EveryFrame
                                              )
 
 # for object in detections:
