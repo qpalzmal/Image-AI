@@ -4,8 +4,10 @@ import cv2
 
 def EveryFrame(frame_number, output_array, output_count):
     print("FOR FRAME", frame_number)
-    for object in detections:
-        print()
+    for i in detections:
+        print(output_array)
+        print(output_count)
+        print("END OF FRAME", frame_number)
 
 
 camera = cv2.VideoCapture(0)
