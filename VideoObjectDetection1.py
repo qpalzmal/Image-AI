@@ -2,14 +2,14 @@ from imageai.Detection import VideoObjectDetection
 import cv2
 
 
-def EveryFrame(frame_number, output_array, output_count):
-    print("FOR FRAME: ", frame_number)
-    print(output_array)
-    print(output_count)
-    print("END OF FRAME: ", frame_number)
+# def EveryFrame(frame_number, output_array, output_count):
+#     print("FOR FRAME: ", frame_number)
+#     print(output_array)
+#     print(output_count)
+#     print("END OF FRAME: ", frame_number)
 
 
-camera = cv2.VideoCapture(0)
+# camera = cv2.VideoCapture(0)
 
 detector = VideoObjectDetection()
 detector.setModelTypeAsTinyYOLOv3()
@@ -22,12 +22,12 @@ detector.loadModel(detection_speed="flash")
 
 detections = detector.detectObjectsFromVideo(input_file_path="Road traffic video for object recognition.mp4",
                                              output_file_path="REEEEEE",  # new video that has the boxes for objects
-                                             camera_input=camera,
+                                             # camera_input=camera,
                                              frames_per_second=10,
                                              minimum_percentage_probability=10,
                                              log_progress=True,
-                                             return_detected_frame=True,
-                                             per_frame_function=EveryFrame
+                                             # return_detected_frame=True,
+                                             # per_frame_function=EveryFrame
                                              )
 
 # for object in detections:
