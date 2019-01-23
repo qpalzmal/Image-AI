@@ -9,23 +9,24 @@ import cv2
 #     print("END OF FRAME: ", frame_number)
 
 
-# camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0)
 
 detector = VideoObjectDetection()
-detector.setModelTypeAsTinyYOLOv3()
+detector.setModelTypeAsRetinaNet()
 detector.setModelPath("resnet50_coco_best_v2.0.1.h5")
-detector.loadModel(detection_speed="flash")
+# detector.loadModel(detection_speed="flash")
 
 # print("BEFORE CAMERA RELEASE")
 # camera.release()
 # print("AFTER CAMERA RELEASE")
 
-detections = detector.detectObjectsFromVideo(input_file_path="Road traffic video for object recognition.mp4",
+detections = detector.detectObjectsFromVideo(
+                                             # input_file_path="Road traffic video for object recognition.mp4",
                                              output_file_path="REEEEEE",  # new video that has the boxes for objects
-                                             # camera_input=camera,
+                                             camera_input=camera,
                                              frames_per_second=10,
                                              minimum_percentage_probability=50,
-                                             log_progress=True,
+                                             log_progress=True
                                              # return_detected_frame=True,
                                              # per_frame_function=EveryFrame
                                              )
