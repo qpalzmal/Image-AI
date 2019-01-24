@@ -1,5 +1,5 @@
 from imageai.Detection import VideoObjectDetection
-import cv2
+# import cv2
 
 # def EveryFrame(frame_number, output_array, output_count):
 #     print("FOR FRAME: ", frame_number)
@@ -8,7 +8,7 @@ import cv2
 #     print("END OF FRAME: ", frame_number)
 
 
-camera = cv2.VideoCapture(0)
+# camera = cv2.VideoCapture(0)
 
 detector = VideoObjectDetection()
 detector.setModelTypeAsRetinaNet()
@@ -27,10 +27,10 @@ detections = detector.detectObjectsFromVideo(
                                              log_progress=True
                                              # return_detected_frame=True,
                                              # per_frame_function=EveryFrame
-)
+                                             )
 
 # for object in detections:
 #     print(object["name"], ":", object["percentage_probability"])
 
-camera.release()
+# camera.release()
 print("REEEEEEEEEEEEEEEEEEEEE")
