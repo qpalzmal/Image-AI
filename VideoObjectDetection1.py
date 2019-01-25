@@ -13,7 +13,8 @@ from imageai.Detection import VideoObjectDetection
 detector = VideoObjectDetection()
 detector.setModelTypeAsRetinaNet()
 detector.setModelPath("resnet50_coco_best_v2.0.1.h5")
-detector.loadModel(detection_speed="faster")
+# detector.loadModel(detection_speed="faster")
+detector.loadModel()
 
 # print("BEFORE CAMERA RELEASE")
 # camera.release()
@@ -21,7 +22,7 @@ detector.loadModel(detection_speed="faster")
 
 detections = detector.detectObjectsFromVideo(
                                              input_file_path="Road traffic video for object recognition.mp4",
-                                             output_file_path="REEEEEE",  # new video that has the boxes for objects
+                                             output_file_path="MODIFIED VIDEO",
                                              frames_per_second=10,
                                              minimum_percentage_probability=50,
                                              log_progress=True
