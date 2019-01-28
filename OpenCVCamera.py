@@ -1,17 +1,25 @@
-import numpy as np
+# Taken from https://gist.github.com/tedmiston/6060034
+# Uses webcam and displays what it captures
 import cv2
 
-camera = cv2.VideoCapture(0)
 
-while True:
-    ret, frame = camera.read()  # captures frame by frame
-    gray = cv2.cvtColor(frame, cv2.COLOR_BAYER_BG2GRAY)  # operations on the frame
-    # display the resulting fram
-    cv2.imshow("frame", gray)
-    if cv2.waitKey(1) and 0xFF == ord("q"):
-        break
+def show_webcam(mirror=False):
+    camera = cv2.VideoCapture(0)
+    while True:
+        ret, frame = camera.read()  # captures frame by frame
+        if mirror:
+            frame = cv2.flip(frame, 1)
+        # display the resulting frame
+        cv2.imshow("Webcam", frame)
+        if cv2.waitKey(27):
+            break  # esc to quit
+    camera.release()
+    cv2.destroyAllWindows()
 
 
-# releases camera
-camera.release()
-cv2.destroyAllWindows()
+def main():
+    show_webcam(mirror=True)
+
+
+if __name__ == "__main__":
+    main()
