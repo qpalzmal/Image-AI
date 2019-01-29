@@ -21,7 +21,7 @@ detector.loadModel()
 # print("AFTER CAMERA RELEASE")
 
 detections = detector.detectObjectsFromVideo(
-                                             input_file_path="Road traffic video for object recognition.mp4",
+                                             input_file_path="Sounds of New York City.mp4",
                                              output_file_path="MODIFIED VIDEO",
                                              frames_per_second=10,
                                              minimum_percentage_probability=50,
