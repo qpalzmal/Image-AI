@@ -11,7 +11,7 @@ def show_webcam(mirror=False):
             frame = cv2.flip(frame, 1)
         # display the resulting frame
         cv2.imshow("Webcam", frame)
-        if cv2.waitKey(27):
+        if cv2.waitKey(27) == 27:
             break  # esc to quit
     camera.release()
     cv2.destroyAllWindows()
