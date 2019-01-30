@@ -1,5 +1,7 @@
 from imageai.Detection import VideoObjectDetection
 # import cv2
+from OpenCVCamera import *
+
 
 # def EveryFrame(frame_number, output_array, output_count):
 #     print("FOR FRAME: ", frame_number)
@@ -19,6 +21,9 @@ detector.loadModel()
 # print("BEFORE CAMERA RELEASE")
 # camera.release()
 # print("AFTER CAMERA RELEASE")
+
+
+show_webcam()
 
 detections = detector.detectObjectsFromVideo(
                                              input_file_path="Sounds of New York City.mp4",
