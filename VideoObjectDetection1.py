@@ -15,8 +15,8 @@ detector.loadModel(detection_speed="flash")
 # detector.loadModel()
 
 
-detections = detector.detectObjectsFromVideo(input_file_path="Videos\Sounds of New York City.mp4",
-                                             output_file_path="NEW YORK (regular)",
+detections = detector.detectObjectsFromVideo(input_file_path="Sounds of New York City.mp4",
+                                             output_file_path="Videos\NEW YORK (regular)",
                                              frames_per_second=30,
                                              minimum_percentage_probability=50,
                                              log_progress=True,
