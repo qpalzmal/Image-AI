@@ -11,12 +11,15 @@ def EveryFrame(frame_number, output_array, output_count):
 detector = VideoObjectDetection()
 detector.setModelTypeAsRetinaNet()
 detector.setModelPath("resnet50_coco_best_v2.0.1.h5")
-detector.loadModel(detection_speed="flash")
-# detector.loadModel()
+
+# 1 = bad ---- 5 = good
+detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy
+# detector.loadmodel(detection_speed="faster")  # 3 speed 3 accuracy
+# detector.loadmodel(detection_speed="flash")  # 5 speed 1 accuracy
 
 
 detections = detector.detectObjectsFromVideo(input_file_path="Sounds of New York City.mp4",
-                                             output_file_path="Videos\NEW YORK (regular)",
+                                             output_file_path="Videos\NEW YORK",
                                              frames_per_second=30,
                                              minimum_percentage_probability=50,
                                              log_progress=True,
