@@ -24,7 +24,7 @@ detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy
 
 def main():
     # webcam.main()
-    detector.detectObjectsFromVideo(output_file_path="MODIFIED WEBCAM VIDEO",
+    detector.detectObjectsFromVideo(output_file_path="Videos\WEBCAM",
                                     frames_per_second=30,
                                     minimum_percentage_probability=50,
                                     log_progress=True,
