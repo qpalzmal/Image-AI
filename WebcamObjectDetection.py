@@ -1,6 +1,7 @@
 from imageai.Detection import VideoObjectDetection
 import cv2
-# import OpenCVCamera as webcam
+import OpenCVCamera as webcam
+import asyncio
 
 
 # LAPTOP WEBCAM RUNS AT 30 FPS
@@ -24,7 +25,7 @@ detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy
 
 
 def main():
-    # webcam.main()
+    webcam.main()
     detector.detectObjectsFromVideo(output_file_path="Videos\WEBCAM",
                                     frames_per_second=30,
                                     minimum_percentage_probability=50,
