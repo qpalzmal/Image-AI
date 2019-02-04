@@ -3,8 +3,9 @@ import cv2
 # import OpenCVCamera as webcam
 
 
+# LAPTOP WEBCAM RUNS AT 30 FPS
 def EveryFrame(frame_number, output_array, output_count):
-    print(output_array)
+    # print(output_array)
     print(output_count)
     # print("END OF FRAME: ", frame_number)
     print("")
