@@ -3,7 +3,7 @@
 import cv2
 
 
-def show_webcam(mirror=False):
+async def show_webcam(mirror=False):
     camera = cv2.VideoCapture(0)
     while True:
         ret, frame = camera.read()  # captures frame by frame
@@ -17,8 +17,8 @@ def show_webcam(mirror=False):
     cv2.destroyAllWindows()
 
 
-def main():
-    show_webcam(mirror=True)
+async def main():
+    await show_webcam(mirror=True)
 
 
 if __name__ == "__main__":

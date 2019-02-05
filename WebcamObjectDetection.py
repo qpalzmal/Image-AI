@@ -24,26 +24,21 @@ detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy
 # detector.loadmodel(detection_speed="flash")  # 5 speed 1 accuracy
 
 
-async def main():
-    await detector.detectObjectsFromVideo(output_file_path="Videos\\WEBCAM",
-                                          frames_per_second=30,
-                                          minimum_percentage_probability=50,
-                                          log_progress=True,
-                                          camera_input=camera,
-                                          per_frame_function=EveryFrame)
-    await webcam.main()
+async def DetectObjects():
+    detector.detectObjectsFromVideo(output_file_path="Videos\\WEBCAM",
+                                    frames_per_second=30,
+                                    minimum_percentage_probability=50,
+                                    log_progress=True,
+                                    camera_input=camera,
+                                    per_frame_function=EveryFrame)
+
+
+def main():
+    loop = asyncio.new_event_loop()
+    detect_task = loop.create_task(DetectObjects())
+    show_webcam_task = loop.create_task(webcam.main())
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    finally:
-        print("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
-        print("")
-        detector.detectObjectsFromVideo(output_file_path="Videos\\WEBCAM",
-                                        frames_per_second=30,
-                                        minimum_percentage_probability=50,
-                                        log_progress=True,
-                                        camera_input=camera,
-                                        per_frame_function=EveryFrame)
-        webcam.main()
+    main()
+
