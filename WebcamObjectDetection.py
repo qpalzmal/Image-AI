@@ -24,15 +24,26 @@ detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy
 # detector.loadmodel(detection_speed="flash")  # 5 speed 1 accuracy
 
 
-def main():
-    webcam.main()
-    detector.detectObjectsFromVideo(output_file_path="Videos\WEBCAM",
-                                    frames_per_second=30,
-                                    minimum_percentage_probability=50,
-                                    log_progress=True,
-                                    camera_input=camera,
-                                    per_frame_function=EveryFrame)
+async def main():
+    await detector.detectObjectsFromVideo(output_file_path="Videos\\WEBCAM",
+                                          frames_per_second=30,
+                                          minimum_percentage_probability=50,
+                                          log_progress=True,
+                                          camera_input=camera,
+                                          per_frame_function=EveryFrame)
+    await webcam.main()
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    finally:
+        print("REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+        print("")
+        detector.detectObjectsFromVideo(output_file_path="Videos\\WEBCAM",
+                                        frames_per_second=30,
+                                        minimum_percentage_probability=50,
+                                        log_progress=True,
+                                        camera_input=camera,
+                                        per_frame_function=EveryFrame)
+        webcam.main()
