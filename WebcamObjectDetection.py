@@ -12,7 +12,6 @@ def EveryFrame(frame_number, output_array, output_count):
 
 camera = cvcamera.camera
 
-
 detector = VideoObjectDetection()
 detector.setModelTypeAsRetinaNet()
 detector.setModelPath("resnet50_coco_best_v2.0.1.h5")
@@ -23,6 +22,7 @@ detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy
 # detector.loadmodel(detection_speed="flash")  # 5 speed 1 accuracy
 
 
+# calling a async function returns a coroutine object and doesn't run them
 async def DetectObjects():
     await detector.detectObjectsFromVideo(output_file_path="Videos\\WEBCAM",
                                           frames_per_second=30,  # LAPTOP WEBCAM RUNS AT 30 FPS
@@ -32,18 +32,21 @@ async def DetectObjects():
                                           per_frame_function=EveryFrame)
 
 
-def main():
+async def main():
+    await cvcamera.show_webcam(cam=camera)
     loop = asyncio.new_event_loop()
 
     # detect_task = loop.create_task(DetectObjects())
-    # show_webcam_task = loop.create_task(cvcamera.main())
+    show_webcam_task = loop.create_task(cvcamera.main())
 
-    loop.run_until_complete(DetectObjects())
+    # loop.run_until_complete(detect_task)
+    loop.run_until_complete(show_webcam_task)
 
-    # asyncio.ensure_future(DetectObjects())
-    asyncio.ensure_future(cvcamera.main())
+    print("TRY ENSURE FUTURE")
+    # asyncio.ensure_future(cvcamera.main())
+    await asyncio.ensure_future(DetectObjects())
 
 
 if __name__ == "__main__":
-    main()
-
+    main_loop = asyncio.new_event_loop()
+    main_loop.run_until_complete(main())
