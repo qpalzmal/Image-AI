@@ -3,11 +3,18 @@ import OpenCVCamera as cvcamera
 import asyncio
 
 
-def EveryFrame(frame_number, output_array, output_count):
+def call_everyframe(frame_number, output_array, output_count):
+    loop = asyncio.new_event_loop()
+    frame_task = loop.create_task(EveryFrame(frame_number, output_array, output_count))
+    loop.run_until_complete(frame_task)
+
+
+async def EveryFrame(frame_number, output_array, output_count):
     # print(output_array)
     print(output_count)
     # print("END OF FRAME: ", frame_number)
     print("")
+    await asyncio.sleep(1)
 
 
 camera = cvcamera.camera
@@ -29,22 +36,20 @@ async def DetectObjects():
                                           minimum_percentage_probability=50,
                                           log_progress=True,
                                           camera_input=camera,
-                                          per_frame_function=EveryFrame)
+                                          per_frame_function=EverFrame)
 
 
 async def main():
-    await cvcamera.show_webcam(cam=camera)
-    loop = asyncio.new_event_loop()
+    # loop = asyncio.new_event_loop()
 
     # detect_task = loop.create_task(DetectObjects())
-    show_webcam_task = loop.create_task(cvcamera.main())
+    # show_webcam_task = loop.create_task(cvcamera.main())
 
     # loop.run_until_complete(detect_task)
-    loop.run_until_complete(show_webcam_task)
+    # loop.run_until_complete(show_webcam_task)
 
-    print("TRY ENSURE FUTURE")
-    # asyncio.ensure_future(cvcamera.main())
-    await asyncio.ensure_future(DetectObjects())
+    await DetectObjects()
+    await cvcamera.show_webcam(cam=camera)
 
 
 if __name__ == "__main__":

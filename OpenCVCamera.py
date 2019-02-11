@@ -15,14 +15,14 @@ async def show_webcam(cam, mirror=False):
         # display the resulting frame
         cv2.imshow("Webcam", frame)
 
-        print("TRY TIME SLEEP")
-        time.sleep(1)
-        print("DONE TIME SLEEP")
-        print("")
-        print("TRY ASYNCIO SLEEP")
-        await asyncio.sleep(1)
-        print("DONE ASYNCIO SLEEP")
-        print("")
+        # print("TRY TIME SLEEP")
+        # time.sleep(1)
+        # print("DONE TIME SLEEP")
+        # print("")
+        # print("TRY ASYNCIO SLEEP")
+        # await asyncio.sleep(1)
+        # print("DONE ASYNCIO SLEEP")
+        # print("")
 
         if cv2.waitKey(27) == 27:
             break  # esc to quit
