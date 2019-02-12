@@ -1,58 +1,31 @@
-# Taken from https://gist.github.com/tedmiston/6060034
-# Uses webcam and displays what it captures
+'''
+Template is taken from https://gist.github.com/tedmiston/6060034
+Uses webcam and displays what it captures
+Modified to be used in conjunction with WebcamObjectDetection.py
+'''
+
 import cv2
-import time
 # import asyncio
 
 camera = cv2.VideoCapture(0)
 
 
-# def show_webcam(cam, mirror=False):
-#     while True:
-#         ret, frame = cam.read()  # captures frame by frame
-#         if mirror:
-#             frame = cv2.flip(frame, 1)
-#         # display the resulting frame
-#         cv2.imshow("Webcam", frame)
-#
-#         # print("TRY TIME SLEEP")
-#         # time.sleep(1)
-#         # print("DONE TIME SLEEP")
-#         # print("")
-#         # print("TRY ASYNCIO SLEEP")
-#         # await asyncio.sleep(1)
-#         # print("DONE ASYNCIO SLEEP")
-#         # print("")
-#
-#         if cv2.waitKey(27) == 27:
-#             break  # esc to quit
-#     cam.release()
-#     cv2.destroyAllWindows()
-
-
-def show_webcam(cam, mirror=False):
+def show_webcam(cam):
+    # while True:  # used to show the webcam capture indefinitely
     ret, frame = cam.read()  # captures frame by frame
-    if mirror:
-        frame = cv2.flip(frame, 1)
+    frame = cv2.flip(frame, 1)
     # display the resulting frame
     cv2.imshow("Webcam", frame)
 
-    # time.sleep(3)
+    cv2.waitKey(3000)  # waits 3 seconds
+    # if cv2.waitKey(27) == 27:  # esc key to close - to be used with the while loop
+    #     break
 
-    # functions similar to time.sleep but doesn't suspend webcam
-    old_time = time.time()
-    current_time = 0
-    while current_time - old_time <= 3:
-        current_time = time.time()
-        print(current_time, "CURRENT")
-        print(old_time, "OLD")
-
-    # cam.release()
     cv2.destroyAllWindows()
 
 
 def main():
-    show_webcam(cam=camera, mirror=True)
+    show_webcam(cam=camera)
 
 
 if __name__ == "__main__":
