@@ -2,6 +2,7 @@
 Program that uses a trained model to detect objects that are captured by the video capture device
 Requires OpenCVCamera.py and (TRAINED MODEL) - both are found at https://github.com/qpalzmal/Image-Object-Recognition
 Contains traces of experimental asynchronous programming - ignore for now
+C:\Users\(PLACEHOLDER)\AppData\Local\Programs\Python\Python36\Scripts - ignore - used for pyinstaller
 '''
 
 from imageai.Detection import VideoObjectDetection
