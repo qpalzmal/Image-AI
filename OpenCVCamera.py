@@ -17,7 +17,7 @@ def show_webcam(cam):
     # display the resulting frame
     cv2.imshow("Webcam", frame)
 
-    cv2.waitKey(3000)  # waits 3 seconds
+    cv2.waitKey(2000)  # waits the given amount of seconds 1000 = 1 sec
     # if cv2.waitKey(27) == 27:  # esc key to close - to be used with the while loop
     #     break
 
