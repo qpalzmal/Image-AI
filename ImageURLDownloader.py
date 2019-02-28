@@ -1,7 +1,7 @@
 import urllib.request
 
 
-def reeee():
+def DownloadImages():
     file_name = input(
         str("Enter the name of the text file that contains the urls of images: "))  # user inputs name of file
     try:
@@ -15,20 +15,27 @@ def reeee():
     for url in file:
         url_count += 1
     decimal_count = len(str(url_count))
-    print(decimal_count)  # returns the n value of 10^n for formatted file count - ex 00005.png format
+    # print("DECIMALCOUNT: ", decimal_count)  # returns the n value of 10^n for formatted file count - ex 00005.png format
     # we get 4 so xxxx amount of images
 
-    format_number = 1
-    # for img in file:
-    place_zero = decimal_count - len(str(format_number))  # gets the amount of zeros to be added to front
-    print(str(format_number) + ".jpg")
-    # urllib.request.urlretrieve(url, "{}str(format_number) + ".jpg")
-    # format_number += 1
+    format_number = "1"  # number that the file will be named
+    iter_format_number = 1
+    for url in range(url_count):
+        place_zero = decimal_count - len(str(format_number))  # gets the amount of zeros to be added to front
+        # print("PLACEZERO: ", place_zero)
+        for i in range(place_zero):
+            format_number = "0" + format_number
+            # print(format_number)
+        image_name = file_name + "_" + format_number + ".jpg"
+        print("IMAGENAME: ", image_name)
 
+        # urllib.request.urlretrieve(url, format_number + ".jpg")
+        iter_format_number += 1
+        format_number = str(iter_format_number)
 
 
 def main():
-    reeee()
+    DownloadImages()
 
 
 if __name__ == "__main__":
