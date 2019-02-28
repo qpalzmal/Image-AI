@@ -14,9 +14,17 @@ def reeee():
     url_count = 0  # gets the line count for the file
     for url in file:
         url_count += 1
-        n = 0
-        urllib.request.urlretrieve(url, str(n) + ".jpg")
-    print(len(str(url_count)))  # returns the n value of 10^n for formatted file count - ex 00005.png format
+    decimal_count = len(str(url_count))
+    print(decimal_count)  # returns the n value of 10^n for formatted file count - ex 00005.png format
+    # we get 4 so xxxx amount of images
+
+    format_number = 1
+    # for img in file:
+    place_zero = decimal_count - len(str(format_number))  # gets the amount of zeros to be added to front
+    print(str(format_number) + ".jpg")
+    # urllib.request.urlretrieve(url, "{}str(format_number) + ".jpg")
+    # format_number += 1
+
 
 
 def main():
