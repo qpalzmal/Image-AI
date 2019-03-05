@@ -19,8 +19,8 @@ def DownloadImages():
     decimal_count = len(str(url_count))
     # print("DECIMALCOUNT: ", decimal_count)
 
-    for url in range(url_count):
-        format_number = str(url + 1)
+    for count in range(url_count):
+        format_number = str(count + 1)
         place_zero = decimal_count - len(format_number)  # gets the amount of zeros to be added to front
         # print("PLACEZERO: ", place_zero)
         # adds the needed amount of zero to the beginning of the number
@@ -29,9 +29,16 @@ def DownloadImages():
             # print(format_number)
         # adds together the passed name, the number its assigned, and the file
         image_name = file_name + "_" + format_number + ".jpg"
+        reader = file.readlines()
+        print("URL: ", reader[count - 1])
         print("IMAGENAME: ", image_name)
 
-        # urllib.request.urlretrieve(url, image_name)  # does the downloading of the image and saves and the given name
+        # does the downloading of the image and saves and the given name
+        try:
+            urllib.request.urlretrieve(reader[count - 1], image_name)
+        except TypeError:
+            print("DOWNLOAD FAILED")
+            print("")
 
 
 def main():
