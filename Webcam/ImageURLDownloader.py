@@ -4,7 +4,9 @@ import urllib.request
 def DownloadImages():
     file_name = input(
         str("Enter the name of the text file that contains the urls of images: "))  # user inputs name of file
+    print(file_name)
     try:
+        print(file_name + ".txt")
         file = open(file_name + ".txt", "r")  # appends the file type ".txt" to end of name and reads the file
     except FileNotFoundError:
         print("The file can not be found")
@@ -27,9 +29,9 @@ def DownloadImages():
             # print(format_number)
         # adds together the passed name, the number its assigned, and the file
         image_name = file_name + "_" + format_number + ".jpg"
-        # print("IMAGENAME: ", image_name)
+        print("IMAGENAME: ", image_name)
 
-        urllib.request.urlretrieve(url, image_name)  # does the downloading of the image and saves and the given name
+        # urllib.request.urlretrieve(url, image_name)  # does the downloading of the image and saves and the given name
 
 
 def main():
