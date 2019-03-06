@@ -14,31 +14,37 @@ def DownloadImages():
         exit()
 
     url_count = 0  # gets the line count for the file
+    url_list = []  # list that will contain all the urls from the file
     for url in file:  # returns the n value of 10^n for formatted file count - ex 00005.png format
         url_count += 1
-    decimal_count = len(str(url_count))
+        url_list.append(url)
+    decimal_count = len(str(url_count))  # value n of 10^n
     # print("DECIMALCOUNT: ", decimal_count)
 
     for count in range(url_count):
-        format_number = str(count + 1)
+        format_number = str(count + 1)  # gets the number the file will be named and its a string
         place_zero = decimal_count - len(format_number)  # gets the amount of zeros to be added to front
         # print("PLACEZERO: ", place_zero)
+
         # adds the needed amount of zero to the beginning of the number
         for i in range(place_zero):
             format_number = "0" + format_number
             # print(format_number)
-        # adds together the passed name, the number its assigned, and the file
+
+        # adds together the passed name, the number its assigned, and the file type
         image_name = file_name + "_" + format_number + ".jpg"
-        reader = file.readlines()
-        print("URL: ", reader[count - 1])
-        print("IMAGENAME: ", image_name)
+        img_url = url_list[count]  # gets the url associated with the line number from the list of urls
+
+        print("URL: ", img_url)
+        # print("IMAGENAME: ", image_name)
 
         # does the downloading of the image and saves and the given name
         try:
-            urllib.request.urlretrieve(reader[count - 1], image_name)
+            urllib.request.urlretrieve(img_url, image_name)
         except TypeError:
             print("DOWNLOAD FAILED")
             print("")
+    file.close()
 
 
 def main():
