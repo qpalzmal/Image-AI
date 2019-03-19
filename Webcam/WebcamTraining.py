@@ -17,8 +17,8 @@ model_trainer.setModelTypeAsSqueezeNet()
 # sets data directory where the dataset is stored
 model_trainer.setDataDirectory("Webcam")
 
-model_trainer.trainModel(num_objects=10,  # the number of different type of professionals in the dataset
+model_trainer.trainModel(num_objects=8,  # the number of different type of classes in the dataset
                          num_experiments=200,  # number of times model trainer studies the images
-                         enhance_data=True,  # creates modified copies of images to improve accuracy
+                         enhance_data=True,  # creates modified copies of images to improve accuracy-works best <1k imgs
                          batch_size=32,  # number of images model will study at once
                          show_network_summary=True)  # shows the structure of model type used
