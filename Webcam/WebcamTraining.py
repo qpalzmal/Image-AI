@@ -9,8 +9,6 @@ SqueezeNet = fastest prediction - mid accuracy
 ResNet = fast prediction - high accuracy
 InceptionV3 = slow prediction - higher accuracy
 DenseNet = slowest prediction - highest accuracy
-
-        file = open("train\\" + file_name + "\\" + file_name + ".txt", "r")  # opens the file at its designated path
 '''
 model_trainer.setModelTypeAsSqueezeNet()
 
