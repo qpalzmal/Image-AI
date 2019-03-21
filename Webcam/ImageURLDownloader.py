@@ -37,12 +37,12 @@ def DownloadImages():
         image_name = file_name + "_" + format_number + ".jpg"
         img_url = url_list[count]  # gets the url associated with the line number from the list of urls
 
-        print("URL {}: " + img_url.format(count))
+        print("URL {}: " + img_url.format(count - 1))
         # print("IMAGENAME: ", image_name)
 
         # does the downloading of the image and saves and the given name
         try:
-            urllib.request.urlretrieve(img_url, image_name)
+            urllib.request.urlretrieve(img_url, "test\\" + file_name + "\\" + image_name)
         except TypeError:
             print("DOWNLOAD FAILED")
             print("")
