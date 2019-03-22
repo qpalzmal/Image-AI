@@ -23,7 +23,8 @@ def DownloadImages():
     decimal_count = len(str(url_count))  # value n of 10^n
     # print("DECIMALCOUNT: ", decimal_count)
 
-    for count in range(1824, url_count):
+    url_count
+    for count in range(181, 1824):
         format_number = str(count + 1)  # gets the number the file will be named and its a string
         place_zero = decimal_count - len(format_number)  # gets the amount of zeros to be added to front
         # print("PLACEZERO: ", place_zero)
