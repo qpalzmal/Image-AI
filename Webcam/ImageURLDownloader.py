@@ -1,4 +1,5 @@
 import urllib.request
+import ssl
 
 
 def DownloadImages():
@@ -24,6 +25,7 @@ def DownloadImages():
     # print("DECIMALCOUNT: ", decimal_count)
 
     # 0 - 333 \\\ 1824 - urlcount --- numbers that need to be downloaded for computer, light, paper, phone, person
+    # computer, light, paper, phone, person: 493-503-683-479-1554
     for count in range(1496, 1824):
         format_number = str(count + 1)  # gets the number the file will be named and its a string
         place_zero = decimal_count - len(format_number)  # gets the amount of zeros to be added to front
@@ -57,6 +59,13 @@ def DownloadImages():
         except TimeoutError:
             print("TIMEOUT ERROR")
             print("")
+        except UnicodeEncodeError:
+            print("UNICODE ENCODE ERROR")
+            print("")
+        except ssl.CertificateError as e:
+            print("CERTIFICATE ERROR")
+            print("")
+
     print("DOWNLOAD COMPLETE")
     file.close()
 
