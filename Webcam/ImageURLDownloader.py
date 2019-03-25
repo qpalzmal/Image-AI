@@ -23,8 +23,8 @@ def DownloadImages():
     decimal_count = len(str(url_count))  # value n of 10^n
     # print("DECIMALCOUNT: ", decimal_count)
 
-    url_count
-    for count in range(181, 1824):
+    # 0 - 333 \\\ 1824 - urlcount --- numbers that need to be downloaded for computer, light, paper, phone, person
+    for count in range(1496, 1824):
         format_number = str(count + 1)  # gets the number the file will be named and its a string
         place_zero = decimal_count - len(format_number)  # gets the amount of zeros to be added to front
         # print("PLACEZERO: ", place_zero)
@@ -38,7 +38,7 @@ def DownloadImages():
         image_name = file_name + "_" + format_number + ".jpg"
         img_url = url_list[count]  # gets the url associated with the line number from the list of urls
 
-        print("URL {}: " + img_url.format(count - 1))
+        print("URL {}: ".format(count) + img_url)
         # print("IMAGENAME: ", image_name)
 
         # does the downloading of the image and saves and the given name
@@ -54,7 +54,10 @@ def DownloadImages():
         except urllib.request.URLError as e:
             print("URL ERROR")
             print("")
-
+        except TimeoutError:
+            print("TIMEOUT ERROR")
+            print("")
+    print("DOWNLOAD COMPLETE")
     file.close()
 
 
