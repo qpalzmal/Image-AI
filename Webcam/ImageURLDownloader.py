@@ -18,9 +18,13 @@ def DownloadImages():
 
     url_count = 0  # gets the line count for the file
     url_list = []  # list that will contain all the urls from the file
+    farm_url_list = []  # specific use depending on network for farm(NUMBER) domains -- same function as url_list
+    farm_check = "farm"
     for url in file:  # returns the n value of 10^n for formatted file count - ex 00005.png format
         url_count += 1
         url_list.append(url)
+        if farm_check in url:
+            farm_url_list.append(url)
     decimal_count = len(str(url_count))  # value n of 10^n
     # print("DECIMALCOUNT: ", decimal_count)
 
@@ -39,6 +43,7 @@ def DownloadImages():
         # adds together the passed name, the number its assigned, and the file type
         image_name = file_name + "_" + format_number + ".jpg"
         img_url = url_list[count]  # gets the url associated with the line number from the list of urls
+        # img_url = farm_url_list[count]
 
         print("URL {}: ".format(count) + img_url)
         # print("IMAGENAME: ", image_name)
