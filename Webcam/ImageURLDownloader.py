@@ -29,8 +29,9 @@ def DownloadImages():
     # print("DECIMALCOUNT: ", decimal_count)
 
     # 0 - 333 \\\ 1824 - urlcount --- numbers that need to be downloaded for computer, light, paper, phone, person
-    # computer, light, paper, phone, person: 493-503-683-479-1554
-    for count in range(1496, 1824):
+    # computer, light, paper, phone: 701-856-956-781
+    # person needs to download all farm domain images
+    for count in range(1554, 1824):
         format_number = str(count + 1)  # gets the number the file will be named and its a string
         place_zero = decimal_count - len(format_number)  # gets the amount of zeros to be added to front
         # print("PLACEZERO: ", place_zero)
