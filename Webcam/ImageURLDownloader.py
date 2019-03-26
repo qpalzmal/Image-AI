@@ -2,7 +2,7 @@ import urllib.request
 import ssl
 
 
-def DownloadImages():
+def downloadimages():
     file_name = input(
         str("Enter the name of the text file that contains the urls of images: "))  # user inputs name of file
     # print(file_name)
@@ -77,7 +77,7 @@ def DownloadImages():
 
 
 def main():
-    DownloadImages()
+    downloadimages()
 
 
 if __name__ == "__main__":
