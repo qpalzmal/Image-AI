@@ -1,5 +1,6 @@
 import urllib.request
 import ssl
+from http import client
 
 
 def DownloadImages():
@@ -70,6 +71,9 @@ def DownloadImages():
             print("")
         except ssl.CertificateError as e:
             print("CERTIFICATE ERROR")
+            print("")
+        except client.RemoteDisconnected:
+            print("HOST DISCONNECTED")
             print("")
 
     print("DOWNLOAD COMPLETE")
