@@ -1,5 +1,6 @@
 import urllib.request
 import ssl
+from http import client
 
 
 def downloadimages():
@@ -18,20 +19,13 @@ def downloadimages():
 
     url_count = 0  # gets the line count for the file
     url_list = []  # list that will contain all the urls from the file
-    farm_url_list = []  # specific use depending on network for farm(NUMBER) domains -- same function as url_list
-    farm_check = "farm"
     for url in file:  # returns the n value of 10^n for formatted file count - ex 00005.png format
         url_count += 1
         url_list.append(url)
-        if farm_check in url:
-            farm_url_list.append(url)
     decimal_count = len(str(url_count))  # value n of 10^n
     # print("DECIMALCOUNT: ", decimal_count)
 
-    # 0 - 333 \\\ 1824 - urlcount --- numbers that need to be downloaded for computer, light, paper, phone, person
-    # computer, light, paper, phone: 701-856-956-781
-    # person needs to download all farm domain images
-    for count in range(1554, 1824):
+    for count in range(0, url_count):
         format_number = str(count + 1)  # gets the number the file will be named and its a string
         place_zero = decimal_count - len(format_number)  # gets the amount of zeros to be added to front
         # print("PLACEZERO: ", place_zero)
@@ -70,6 +64,10 @@ def downloadimages():
             print("")
         except ssl.CertificateError as e:
             print("CERTIFICATE ERROR")
+            print("")
+        except client.RemoteDisconnected:
+            print("")
+        except ConnectionResetError:
             print("")
 
     print("DOWNLOAD COMPLETE")
