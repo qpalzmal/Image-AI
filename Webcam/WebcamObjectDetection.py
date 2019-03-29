@@ -4,14 +4,15 @@ Requires OpenCVCamera.py and (TRAINED MODEL) - both are found at https://github.
 Contains traces of experimental asynchronous programming - ignore for now
 C:\\Users\\(PLACEHOLDER)\\AppData\\Local\\Programs\\Python\\Python36\\Scripts - ignore - used for pyinstaller
 '''
-
 from imageai.Detection import VideoObjectDetection
-import OpenCVCamera as cv
+import OpenCVCamera as Cv
 # import asyncio
 
 detector = VideoObjectDetection()
-detector.setModelTypeAsRetinaNet()
-detector.setModelPath("resnet50_coco_best_v2.0.1.h5")
+# detector.setModelTypeAsRetinaNet()
+# detector.setModelTypeAsTinyYOLOv3()
+detector.setModelTypeAsYOLOv3()
+detector.setModelPath("model_ex-106_acc-0.456140.h5")
 
 # 1 = bad ---- 5 = good
 # detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy
@@ -33,7 +34,7 @@ def DetectObjects():
                                     frames_per_second=15,  # LAPTOP WEBCAM RUNS AT 30 FPS
                                     minimum_percentage_probability=50,
                                     log_progress=True,
-                                    camera_input=cv.camera,
+                                    camera_input=Cv.camera,
                                     per_frame_function=EveryFrame)
 
 
