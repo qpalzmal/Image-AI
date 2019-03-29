@@ -33,9 +33,9 @@ lidl_detector.loadModel()
 lidl_detections = lidl_detector.detectObjectsFromImage(input_image="image.jpg",  # takes in the input image
                                                        output_image_path="LIDLnewimage.jpg")  # creates a new image
 
+# DETECTION TO OUTPUT THE PREDICTION IN CONSOLE
 predictions, probabilities = prediction.predictImage(image_input="image.jpg", result_count=3)
 
-# DETECTION TO OUTPUT THE PREDICTION IN CONSOLE
 for prediction, probability in zip(predictions, probabilities):
     print(prediction, ":", probability)
 
