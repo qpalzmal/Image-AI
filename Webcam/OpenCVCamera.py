@@ -2,6 +2,11 @@
 Template is taken from https://gist.github.com/tedmiston/6060034
 Uses webcam and displays what it captures
 Modified to be used in conjunction with WebcamObjectDetection.py
+
+
+---------------------------------------------------------------------------------------------------
+NOT FUNCTIONAL AS THE CUSTOM TRAINING ALGORITHMS AVAILABLE DON'T MATCH THE SUPPORTED TRAINED MODELS
+---------------------------------------------------------------------------------------------------
 '''
 
 import cv2
@@ -15,14 +20,12 @@ def show_webcam(cam):
     ret, frame = cam.read()  # captures frame by frame
     frame = cv2.flip(frame, 1)
     # display the resulting frame
-    # cv2.imshow("Webcam", frame)
-    cv2.imwrite("image.png", frame)
+    cv2.imshow("Webcam", frame)
 
     cv2.waitKey(2000)  # waits the given amount of seconds 1000 = 1 sec
     # if cv2.waitKey(27) == 27:  # esc key to close - to be used with the while loop
     #     break
 
-    camera.release()
     cv2.destroyAllWindows()
 
 

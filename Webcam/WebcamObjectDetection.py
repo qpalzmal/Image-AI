@@ -2,17 +2,18 @@
 Program that uses a trained model to detect objects that are captured by the video capture device
 Requires OpenCVCamera.py and (TRAINED MODEL) - both are found at https://github.com/qpalzmal/Image-Object-Recognition
 Contains traces of experimental asynchronous programming - ignore for now
-C:\\Users\\(PLACEHOLDER)\\AppData\\Local\\Programs\\Python\\Python36\\Scripts - ignore - used for pyinstaller
+
+---------------------------------------------------------------------------------------------------
+NOT FUNCTIONAL AS THE CUSTOM TRAINING ALGORITHMS AVAILABLE DON'T MATCH THE SUPPORTED TRAINED MODELS
+---------------------------------------------------------------------------------------------------
 '''
 from imageai.Detection import VideoObjectDetection
 import OpenCVCamera as Cv
 # import asyncio
 
 detector = VideoObjectDetection()
-# detector.setModelTypeAsRetinaNet()
-# detector.setModelTypeAsTinyYOLOv3()
-detector.setModelTypeAsYOLOv3()
-detector.setModelPath("model_ex-106_acc-0.456140.h5")
+# load model type goes here
+detector.setModelPath("model_ex-106_acc-0.456140.h5")  # SqueezeNet
 
 # 1 = bad ---- 5 = good
 # detector.loadModel(detection_speed="normal")  # 1 speed 5 accuracy

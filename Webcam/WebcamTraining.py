@@ -1,3 +1,8 @@
+'''
+---------------------------------------------------------------------------------------------------
+NOT FUNCTIONAL AS THE CUSTOM TRAINING ALGORITHMS AVAILABLE DON'T MATCH THE SUPPORTED TRAINED MODELS
+---------------------------------------------------------------------------------------------------
+'''
 from imageai.Prediction.Custom import ModelTraining
 
 model_trainer = ModelTraining()
